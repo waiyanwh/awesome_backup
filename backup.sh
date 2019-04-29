@@ -42,19 +42,14 @@ function backup_json(){
 # Move files t backup and upload to google drive
 function gdrive_upload(){	
 	echo "Moving backup_dbs to backup folder"
-	echo -e "******************************\n"
 	mv $db_files $backup_db_dir 
 	echo "Moving backup jsons to backup folder"
-	echo -e "******************************\n"
-	mv $json_files $backup_json_dir 
 	echo "Compressing backups files to backup_$cur_dt.tar.gz"
 	echo -e "********************************************\n"
 	tar czf $gzfile $backup_dir
 	echo "Creating $backup_dir in drive"
-	echo -e "************************\n"
 	rclone mkdir backup:YOUR_DIR_TO_STORE_BACKUP_IN_GDRIVE/$backup_dir
 	echo "Upload files to google drive"
-	echo -e "*************************\n"
 	rclone copy $gzfile backup:YOUR_DIR_TO_STORE_BACKUP_IN_GDRIVE/$backup_dir
 }
 

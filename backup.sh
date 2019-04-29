@@ -36,7 +36,7 @@ function backup_db(){
 
 # Backup json files
 function backup_json(){
-	cp -r yout/json/path/*.json .
+	cp -r your/json/path/*.json .
 }
 
 # Move files t backup and upload to google drive

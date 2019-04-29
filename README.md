@@ -1,4 +1,4 @@
-# Awesome_backup
+# Awesome_backup power by rclone
 This script will backup the files from your system and upload to google drive.
 
 ## First of all

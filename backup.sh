@@ -1,6 +1,6 @@
 #!/bin/bash
 # Variables for scripts
-backup_dir=$(date +'%d-%m-%y')
+backup_dir=$(date +'%Y-%m-%d')
 cur_time=$(date +'%H-%M')
 backup_db_dir=$backup_dir/backup_dbs
 backup_json_dir=$backup_dir/backup_jsons
@@ -57,7 +57,7 @@ function gdrive_upload(){
 function delete(){
 	day_count=$(( $day_count+1 ))
 	filename=( $(rclone lsd backup:YOUR_DIR_TO_STORE_BACKUP_IN_GDRIVE/ | awk '{print $5}') )
-	del_file=$(date --date="$day_count days ago" +'%d-%m-%y')
+	del_file=$(date --date="$day_count days ago" +'%Y-%m-%d')
 	second=$(date -d $del_file +%s)
 	for (( i=0; i < ${#filename[@]}; i++))
 	do
